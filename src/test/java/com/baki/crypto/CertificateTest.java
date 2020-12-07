@@ -2,9 +2,12 @@ package com.baki.crypto;
 
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +20,17 @@ public class CertificateTest extends BaseTest {
                 keyStore.getEntry("testkey", new KeyStore.PasswordProtection("123456".toCharArray()));
 
         Certificate certificate = privateKeyEntry.getCertificate();
+
+        assertNotNull(certificate);
+    }
+
+    @Test
+    public void getCertificateFromCertFile() throws Exception {
+        CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+
+        InputStream certificateIS = new FileInputStream("keys/exported_cert.cert");
+
+        Certificate certificate = certificateFactory.generateCertificate(certificateIS);
 
         assertNotNull(certificate);
     }
