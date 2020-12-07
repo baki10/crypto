@@ -32,6 +32,7 @@ keytool -importcert -alias testkey \
 ### 4) List KeyStore Entries:
 ```shell script
 keytool -list \
+        -v \
         -storetype PKCS12 \
         -keystore to_import.jks \ 
         -storepass 123456
