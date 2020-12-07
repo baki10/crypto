@@ -13,7 +13,7 @@ public abstract class BaseTest {
 
     @Before
     public void init() {
-        Security.addProvider(new BouncyCastleProvider());
+//        Security.addProvider(new BouncyCastleProvider());
     }
 
     protected SecretKey getSymmetricKey() throws Exception {
