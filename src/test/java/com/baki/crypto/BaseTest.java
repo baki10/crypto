@@ -1,20 +1,15 @@
 package com.baki.crypto;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.junit.Before;
-
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.security.*;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
 public abstract class BaseTest {
-
-    @Before
-    public void init() {
-//        Security.addProvider(new BouncyCastleProvider());
-    }
 
     protected SecretKey getSymmetricKey() throws Exception {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
